@@ -7,6 +7,7 @@
 	.equ GPIO_GPLEV0,    0x34
 
 	.globl main
+	.global rectangulo
 
 pixel_x_y:
 

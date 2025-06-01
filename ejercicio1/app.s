@@ -1,5 +1,9 @@
-.include "funciones_basicas.s"
-
+.equ SCREEN_WIDTH, 		640
+.equ SCREEN_HEIGHT, 	480
+.equ BITS_PER_PIXEL,  	32
+.extern fondo
+.extern funciones_basicas
+.global main
 main:
 
 	mov x20, x0	// dirección base del framebuffer en x20 (por las dudas)
@@ -12,8 +16,7 @@ main:
   	    x6 cuántas líneas pintar en Y
   	    x7 color
   	*/
-
-// EJEMPLO:
+	/* EJEMPLO:
 
 	mov x1, 0
 	mov x2, 0
@@ -45,7 +48,10 @@ main:
 
 	bl rectangulo
 
-// FIN DE EJEMPLO
+// FIN DE EJEMPLO*/
+
+bl fondo
+b InfLoop
 
 InfLoop:
 
