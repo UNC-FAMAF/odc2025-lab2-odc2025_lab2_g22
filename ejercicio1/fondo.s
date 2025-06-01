@@ -32,8 +32,7 @@ rectangulo_duplicado:
 
 fondo:
 	sub sp,sp, #8
-	stur x28, [sp]
-	mov x28, x30
+	stur x30, [sp]
 // 263121
 	mov x1, 1
 	mov x2, 371
@@ -6450,8 +6449,7 @@ fondo:
 	movk w7, 0x17, lsl #16 
 	bl rectangulo_duplicado
 
-	ldr x28, [sp]
+	ldr x30, [sp]
 	add sp, sp, #8
-	mov x30, x28
 	ret
 
