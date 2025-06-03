@@ -100,6 +100,14 @@ reloj_universal:
 //x16 ----> reloj_animacion_gota
 //x28 ----> program counter de repuesto
 animacion_lluvia:
+/*
+La idea de la animación lluvia es que el sprite(imagen) de las gotas se actualicen
+cada 1 (se guarda en x16) del reloj. Así se actualza cuando x21 vale 0, 1, 2,..
+Si ponemos x16 = 3, se actualizaría cuando x21 vale 0, 3, 6,....
+Por eso hay una parte que dice calcular modulo, si por ejemplo
+el modulo no es cero entonces no tengo que actualizar la animacion y por tanto
+no haga nada. Y el modulo es cero, entonces me toca actualizar la animacion.
+*/
 	//--------------------------------------------
 	mov x28, x30
 	mov x16, #1
