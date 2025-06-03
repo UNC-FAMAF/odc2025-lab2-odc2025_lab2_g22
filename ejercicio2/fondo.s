@@ -32,8 +32,7 @@ rectangulo_duplicado:
 
 fondo:
 	sub sp,sp, #8
-	stur x28, [sp]
-	mov x28, x30
+	stur x30, [sp]
 // 263121
 	mov x1, 1
 	mov x2, 371
@@ -6450,8 +6449,932 @@ fondo:
 	movk w7, 0x17, lsl #16 
 	bl rectangulo_duplicado
 
-	ldr x28, [sp]
+suelo:
+	// (1,384) (640,480) 35382b
+	mov x1, 1
+	mov x2, 384
+	mov x5, 640
+	mov x6, 480
+	movz w7, 0x382b
+	movk w7, 0x35, lsl #16 
+	bl rectangulo
+	// (1,384) (51,388) 292e1d
+	mov x1, 1
+	mov x2, 384
+	mov x5, 51
+	mov x6, 388
+	movz w7, 0x2e1d
+	movk w7, 0x29, lsl #16 
+	bl rectangulo
+	// (51,384) (57,388) 444023
+	mov x1, 51
+	mov x2, 384
+	mov x5, 57
+	mov x6, 388
+	movz w7, 0x4023
+	movk w7, 0x44, lsl #16 
+	bl rectangulo
+	// (57,384) (178,388) 292e1d
+	mov x1, 57
+	mov x2, 384
+	mov x5, 178
+	mov x6, 388
+	movz w7, 0x2e1d
+	movk w7, 0x29, lsl #16 
+	bl rectangulo
+	// (178,384) (185,388) 494326
+	mov x1, 178
+	mov x2, 384
+	mov x5, 185
+	mov x6, 388
+	movz w7, 0x4326
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (185,388) (299,388) 292e1d
+	mov x1, 185
+	mov x2, 384
+	mov x5, 299
+	mov x6, 388
+	movz w7, 0x2e1d
+	movk w7, 0x29, lsl #16 
+	bl rectangulo
+	// (299,384) (326,388) 242919
+	mov x1, 299
+	mov x2, 384
+	mov x5, 326
+	mov x6, 388
+	movz w7, 0x2919
+	movk w7, 0x24, lsl #16 
+	bl rectangulo
+	// (326,384) (385,388) 292e1d
+	mov x1, 326
+	mov x2, 384
+	mov x5, 385
+	mov x6, 388
+	movz w7, 0x2e1d
+	movk w7, 0x29, lsl #16 
+	bl rectangulo
+	// (385, 384) (405,388) 242919
+	mov x1, 385
+	mov x2, 384
+	mov x5, 405
+	mov x6, 388
+	movz w7, 0x2919
+	movk w7, 0x24, lsl #16 
+	bl rectangulo
+	// (405, 384) (411,388) 34341b
+	mov x1, 405
+	mov x2, 384
+	mov x5, 411
+	mov x6, 388
+	movz w7, 0x341b
+	movk w7, 0x34, lsl #16 
+	bl rectangulo
+	// (411, 384) (432,388) 242919
+	mov x1, 411
+	mov x2, 384
+	mov x5, 432
+	mov x6, 388
+	movz w7, 0x2919
+	movk w7, 0x24, lsl #16 
+	bl rectangulo
+	// (432, 384) (500,388) 373822
+	mov x1, 432
+	mov x2, 384
+	mov x5, 500
+	mov x6, 388
+	movz w7, 0x3822
+	movk w7, 0x37, lsl #16 
+	bl rectangulo
+	// (500, 384) (545,388) 303422
+	mov x1, 500
+	mov x2, 384
+	mov x5, 545
+	mov x6, 388
+	movz w7, 0x3422
+	movk w7, 0x30, lsl #16 
+	bl rectangulo
+	// (545, 384) (552,388) 232a20
+	mov x1, 545
+	mov x2, 384
+	mov x5, 552
+	mov x6, 388
+	movz w7, 0x2a20
+	movk w7, 0x23, lsl #16 
+	bl rectangulo
+	// (552, 384) (579,388) 2a3124
+	mov x1, 552
+	mov x2, 384
+	mov x5, 579
+	mov x6, 388
+	movz w7, 0x3124
+	movk w7, 0x2a, lsl #16 
+	bl rectangulo
+	// (579, 384) (599,388) 1f2415
+	mov x1, 579
+	mov x2, 384
+	mov x5, 599
+	mov x6, 388
+	movz w7, 0x2415
+	movk w7, 0x1f, lsl #16 
+	bl rectangulo
+	// (599, 384) (606,388) 252c20
+	mov x1, 599
+	mov x2, 384
+	mov x5, 606
+	mov x6, 388
+	movz w7, 0x2c20
+	movk w7, 0x25, lsl #16 
+	bl rectangulo
+	// (606, 384) (640,388) 1f2415
+	mov x1, 606
+	mov x2, 384
+	mov x5, 640
+	mov x6, 388
+	movz w7, 0x2415
+	movk w7, 0x1f, lsl #16 
+	bl rectangulo
+	// (1, 388) (11,433) 706437
+	mov x1, 1
+	mov x2, 388
+	mov x5, 11
+	mov x6, 433
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (11, 388) (17,426) 706437
+	mov x1, 11
+	mov x2, 388
+	mov x5, 17
+	mov x6, 426
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (17, 388) (51,398) 706437
+	mov x1, 17
+	mov x2, 388
+	mov x5, 51
+	mov x6, 398
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (17, 405) (51,426) 706437
+	mov x1, 17
+	mov x2, 405
+	mov x5, 51
+	mov x6, 426
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (25, 398) (51,405) 706437
+	mov x1, 25
+	mov x2, 398
+	mov x5, 51
+	mov x6, 405
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (17, 398) (25,405) 4c472a
+	mov x1, 17
+	mov x2, 398
+	mov x5, 25
+	mov x6, 405
+	movz w7, 0x472a
+	movk w7, 0x4c, lsl #16 
+	bl rectangulo
+	// (51, 388) (57,426) 444023
+	mov x1, 51
+	mov x2, 388
+	mov x5, 57
+	mov x6, 426
+	movz w7, 0x4023
+	movk w7, 0x44, lsl #16 
+	bl rectangulo
+	// (57, 388) (77,426) 706437
+	mov x1, 57
+	mov x2, 388
+	mov x5, 77
+	mov x6, 426
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (77, 388) (124,419) 706437
+	mov x1, 77
+	mov x2, 388
+	mov x5, 124
+	mov x6, 419
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (124, 388) (151,412) 706437
+	mov x1, 124
+	mov x2, 388
+	mov x5, 151
+	mov x6, 412
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (151, 388) (178,391) 706437
+	mov x1, 151
+	mov x2, 388
+	mov x5, 178
+	mov x6, 391
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (151, 391) (164,398) 4a4629
+	mov x1, 151
+	mov x2, 391
+	mov x5, 164
+	mov x6, 398
+	movz w7, 0x4629
+	movk w7, 0x4a, lsl #16 
+	bl rectangulo
+	// (164, 391) (178,398) 706437
+	mov x1, 164
+	mov x2, 391
+	mov x5, 178
+	mov x6, 398
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (151, 398) (178,412) 706437
+	mov x1, 151
+	mov x2, 398
+	mov x5, 178
+	mov x6, 412
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (178, 388) (185,412) 494326
+	mov x1, 178
+	mov x2, 388
+	mov x5, 185
+	mov x6, 412
+	movz w7, 0x4326
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (185, 388) (192,412) 706437
+	mov x1, 185
+	mov x2, 388
+	mov x5, 192
+	mov x6, 412
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (192, 388) (279,405) 706437
+	mov x1, 192
+	mov x2, 388
+	mov x5, 279
+	mov x6, 405
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (279, 388) (292,398) 706437
+	mov x1, 279
+	mov x2, 388
+	mov x5, 292
+	mov x6, 398
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (1, 433) (91,471) 4a4629
+	mov x1, 1
+	mov x2, 433
+	mov x5, 91
+	mov x6, 471
+	movz w7, 0x4629
+	movk w7, 0x4a, lsl #16 
+	bl rectangulo
+	// (11, 426) (51,432) 4a4629
+	mov x1, 11
+	mov x2, 426
+	mov x5, 51
+	mov x6, 433
+	movz w7, 0x4629
+	movk w7, 0x4a, lsl #16 
+	bl rectangulo
+	// (51, 426) (57,433) 444023
+	mov x1, 51
+	mov x2, 426
+	mov x5, 57
+	mov x6, 433
+	movz w7, 0x4023
+	movk w7, 0x44, lsl #16 
+	bl rectangulo
+	// (57, 426) (104,433) 4a4629
+	mov x1, 57
+	mov x2, 426
+	mov x5, 104
+	mov x6, 433
+	movz w7, 0x4629
+	movk w7, 0x4a, lsl #16 
+	bl rectangulo
+	// (77, 419) (104,426) 4a4629
+	mov x1, 77
+	mov x2, 419
+	mov x5, 104
+	mov x6, 426
+	movz w7, 0x4629
+	movk w7, 0x4a, lsl #16 
+	bl rectangulo
+	// (104, 419) (111,440) 363520
+	mov x1, 104
+	mov x2, 419
+	mov x5, 111
+	mov x6, 440
+	movz w7, 0x3520
+	movk w7, 0x36, lsl #16 
+	bl rectangulo
+	// (111, 419) (137,440) 4a4629
+	mov x1, 111
+	mov x2, 419
+	mov x5, 137
+	mov x6, 440
+	movz w7, 0x4629
+	movk w7, 0x4a, lsl #16 
+	bl rectangulo
+	// (124, 412) (137,419) 4a4629
+	mov x1, 124
+	mov x2, 412
+	mov x5, 137
+	mov x6, 419
+	movz w7, 0x4629
+	movk w7, 0x4a, lsl #16 
+	bl rectangulo
+	// (137, 412) (144,418) 4a4629
+	mov x1, 137
+	mov x2, 412
+	mov x5, 144
+	mov x6, 418
+	movz w7, 0x4629
+	movk w7, 0x4a, lsl #16 
+	bl rectangulo
+	// (137, 418) (144,426) 706437
+	mov x1, 137
+	mov x2, 418
+	mov x5, 144
+	mov x6, 426
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (144, 412) (158,426) 706437
+	mov x1, 144
+	mov x2, 412
+	mov x5, 158
+	mov x6, 426
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (158, 419) (178,426) 706437
+	mov x1, 158
+	mov x2, 419
+	mov x5, 178
+	mov x6, 426
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (158, 412) (178,419) 484427
+	mov x1, 158
+	mov x2, 412
+	mov x5, 178
+	mov x6, 419
+	movz w7, 0x4427
+	movk w7, 0x48, lsl #16 
+	bl rectangulo
+	// (178, 412) (185,419) 37371e
+	mov x1, 178
+	mov x2, 412
+	mov x5, 185
+	mov x6, 419
+	movz w7, 0x371e
+	movk w7, 0x37, lsl #16 
+	bl rectangulo
+	// (185, 412) (190,419) 484427
+	mov x1, 185
+	mov x2, 412
+	mov x5, 190
+	mov x6, 419
+	movz w7, 0x4427
+	movk w7, 0x48, lsl #16 
+	bl rectangulo
+	// (185, 418) (191,426) 706437
+	mov x1, 185
+	mov x2, 418
+	mov x5, 191
+	mov x6, 426
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (178, 419) (185,433) 403d23
+	mov x1, 178
+	mov x2, 419
+	mov x5, 185
+	mov x6, 433
+	movz w7, 0x3d23
+	movk w7, 0x40, lsl #16 
+	bl rectangulo
+	// (190, 412) (211,418) 706437
+	mov x1, 190
+	mov x2, 412
+	mov x5, 211
+	mov x6, 418
+	movz w7, 0x6437
+	movk w7, 0x70, lsl #16 
+	bl rectangulo
+	// (91, 433) (104,447) 4a4629
+	mov x1, 91
+	mov x2, 433
+	mov x5, 104
+	mov x6, 447
+	movz w7, 0x4629
+	movk w7, 0x4a, lsl #16 
+	bl rectangulo
+	// (104, 440) (111,447) 242c21
+	mov x1, 104
+	mov x2, 440
+	mov x5, 111
+	mov x6, 447
+	movz w7, 0x2c21
+	movk w7, 0x24, lsl #16 
+	bl rectangulo
+	// (111, 440) (144,447) 373a2c
+	mov x1, 111
+	mov x2, 440
+	mov x5, 144
+	mov x6, 447
+	movz w7, 0x3a2c
+	movk w7, 0x37, lsl #16 
+	bl rectangulo
+	// (92, 448) (104,453) 35372c
+	mov x1, 111
+	mov x2, 440
+	mov x5, 144
+	mov x6, 447
+	movz w7, 0x372c
+	movk w7, 0x35, lsl #16 
+	bl rectangulo
+	// (104, 447) (111,453) 363520
+	mov x1, 104
+	mov x2, 447
+	mov x5, 111
+	mov x6, 453
+	movz w7, 0x3520
+	movk w7, 0x36, lsl #16 
+	bl rectangulo
+	// (91, 453) (131,471) 4a4629
+	mov x1, 91
+	mov x2, 451
+	mov x5, 131
+	mov x6, 471
+	movz w7, 0x4629
+	movk w7, 0x4a, lsl #16 
+	bl rectangulo
+	// (111, 447) (221,461) 4a4629
+	mov x1, 111
+	mov x2, 447
+	mov x5, 221
+	mov x6, 461
+	movz w7, 0x4629
+	movk w7, 0x4a, lsl #16 
+	bl rectangulo
+	// (91, 447) (104,453) 35372c
+	mov x1, 91
+	mov x2, 447
+	mov x5, 104
+	mov x6, 453
+	movz w7, 0x372c
+	movk w7, 0x35, lsl #16 
+	bl rectangulo
+	// (144, 440) (150,447) 494629
+	mov x1, 144
+	mov x2, 440
+	mov x5, 150
+	mov x6, 447
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (150, 440) (191,447) 343a2b
+	mov x1, 150
+	mov x2, 440
+	mov x5, 191
+	mov x6, 447
+	movz w7, 0x3a2b
+	movk w7, 0x34, lsl #16 
+	bl rectangulo
+	// (191, 440) (198,447) 494629
+	mov x1, 191
+	mov x2, 440
+	mov x5, 198
+	mov x6, 447
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (198, 440) (211,447) 36382d
+	mov x1, 198
+	mov x2, 440
+	mov x5, 211
+	mov x6, 447
+	movz w7, 0x382d
+	movk w7, 0x36, lsl #16 
+	bl rectangulo
+	// (211, 440) (232,447) 494629
+	mov x1, 211
+	mov x2, 440
+	mov x5, 232
+	mov x6, 447
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (137, 426) (178,440) 494629
+	mov x1, 137
+	mov x2, 426
+	mov x5, 178
+	mov x6, 440
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (178, 433) (232,440) 494629
+	mov x1, 178
+	mov x2, 433
+	mov x5, 232
+	mov x6, 440
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (185, 426) (232,433) 494629
+	mov x1, 185
+	mov x2, 426
+	mov x5, 232
+	mov x6, 433
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (191, 418) (232,426) 494629
+	mov x1, 191
+	mov x2, 418
+	mov x5, 232
+	mov x6, 426
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (211, 412) (232,418) 494629
+	mov x1, 211
+	mov x2, 412
+	mov x5, 232
+	mov x6, 418
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (131, 461) (181,467) 494629
+	mov x1, 131
+	mov x2, 461
+	mov x5, 181
+	mov x6, 467
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (221, 447) (232,453) 494629
+	mov x1, 221
+	mov x2, 447
+	mov x5, 232
+	mov x6, 453
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (232, 412) (238,453) 363521
+	mov x1, 232
+	mov x2, 412
+	mov x5, 238
+	mov x6, 453
+	movz w7, 0x3521
+	movk w7, 0x36, lsl #16 
+	bl rectangulo
+	// (238, 412) (259,447) 494629
+	mov x1, 238
+	mov x2, 412
+	mov x5, 259
+	mov x6, 447
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (192, 405) (259,412) 494629
+	mov x1, 192
+	mov x2, 405
+	mov x5, 259
+	mov x6, 412
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (259, 405) (352,440) 494629
+	mov x1, 259
+	mov x2, 405
+	mov x5, 352
+	mov x6, 440
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (279, 398) (352,405) 494629
+	mov x1, 279
+	mov x2, 398
+	mov x5, 352
+	mov x6, 405
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (292, 388) (352,398) 494629
+	mov x1, 292
+	mov x2, 388
+	mov x5, 352
+	mov x6, 398
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (359, 388) (405,433) 494629
+	mov x1, 359
+	mov x2, 388
+	mov x5, 405
+	mov x6, 433
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (411, 388) (424,426) 494629
+	mov x1, 411
+	mov x2, 388
+	mov x5, 424
+	mov x6, 426
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (438, 388) (451,412) 494629
+	mov x1, 438
+	mov x2, 388
+	mov x5, 451
+	mov x6, 412
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (424, 388) (438,419) 494629
+	mov x1, 424
+	mov x2, 388
+	mov x5, 438
+	mov x6, 419
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (451, 388) (485,405) 494629
+	mov x1, 451
+	mov x2, 388
+	mov x5, 485
+	mov x6, 405
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (485, 388) (499,398) 494629
+	mov x1, 485
+	mov x2, 388
+	mov x5, 499
+	mov x6, 398
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (278, 440) (332,447) 494629
+	mov x1, 278
+	mov x2, 440
+	mov x5, 332
+	mov x6, 447
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (251, 464) (276,470) 494629
+	mov x1, 251
+	mov x2, 464
+	mov x5, 276
+	mov x6, 470
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (324, 465) (338,474) 494629
+	mov x1, 324
+	mov x2, 465
+	mov x5, 338
+	mov x6, 474
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (360, 450) (372,459) 494629
+	mov x1, 360
+	mov x2, 450
+	mov x5, 372
+	mov x6, 459
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (384, 433) (398,440) 494629
+	mov x1, 384
+	mov x2, 433
+	mov x5, 398
+	mov x6, 440
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (398, 454) (412,463) 494629
+	mov x1, 398
+	mov x2, 454
+	mov x5, 412
+	mov x6, 463
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (437, 432) (451,440) 494629
+	mov x1, 437
+	mov x2, 432
+	mov x5, 451
+	mov x6, 440
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (457, 418) (479,426) 494629
+	mov x1, 457
+	mov x2, 418
+	mov x5, 479
+	mov x6, 426
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (478, 432) (505,440) 494629
+	mov x1, 478
+	mov x2, 432
+	mov x5, 505
+	mov x6, 440
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (484, 404) (492,412) 494629
+	mov x1, 484
+	mov x2, 404
+	mov x5, 492
+	mov x6, 412
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (504, 411) (519,419) 494629
+	mov x1, 504
+	mov x2, 411
+	mov x5, 519
+	mov x6, 419
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (518, 404) (532,412) 494629
+	mov x1, 518
+	mov x2, 404
+	mov x5, 532
+	mov x6, 412
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (238, 447) (245,453) 494629
+	mov x1, 238
+	mov x2, 447
+	mov x5, 245
+	mov x6, 453
+	movz w7, 0x4629
+	movk w7, 0x49, lsl #16 
+	bl rectangulo
+	// (299, 433) (318,439) 35382a
+	mov x1, 299
+	mov x2, 433
+	mov x5, 318
+	mov x6, 439
+	movz w7, 0x382a
+	movk w7, 0x35, lsl #16 
+	bl rectangulo
+	// (353, 388) (359,434) 302f1b
+	mov x1, 352
+	mov x2, 388
+	mov x5, 359
+	mov x6, 434
+	movz w7, 0x2f1b
+	movk w7, 0x30, lsl #16 
+	bl rectangulo
+	// (352, 433) (359,453) 21291e
+	mov x1, 352
+	mov x2, 433
+	mov x5, 359
+	mov x6, 453
+	movz w7, 0x291e
+	movk w7, 0x21, lsl #16 
+	bl rectangulo
+	// (405, 388) (411,433) 34341b
+	mov x1, 405
+	mov x2, 388
+	mov x5, 411
+	mov x6, 433
+	movz w7, 0x341b
+	movk w7, 0x34, lsl #16 
+	bl rectangulo
+	// (398, 405) (418,412) 37382b
+	mov x1, 398
+	mov x2, 405
+	mov x5, 418
+	mov x6, 412
+	movz w7, 0x382b
+	movk w7, 0x37, lsl #16 
+	bl rectangulo
+	// (405, 405) (411,412) 282b20
+	mov x1, 405
+	mov x2, 405
+	mov x5, 411
+	mov x6, 412
+	movz w7, 0x2b20
+	movk w7, 0x28, lsl #16 
+	bl rectangulo
+	// (385, 412) (398,419) 36392c
+	mov x1, 385
+	mov x2, 412
+	mov x5, 398
+	mov x6, 419
+	movz w7, 0x392c
+	movk w7, 0x36, lsl #16 
+	bl rectangulo
+	// (418,398) (431,405) 36392c
+	mov x1, 418
+	mov x2, 398
+	mov x5, 431
+	mov x6, 405
+	movz w7, 0x392c
+	movk w7, 0x36, lsl #16 
+	bl rectangulo
+	// (465,387) (472,426) 353420
+	mov x1, 465
+	mov x2, 387
+	mov x5, 472
+	mov x6, 426
+	movz w7, 0x3420
+	movk w7, 0x35, lsl #16 
+	bl rectangulo
+	// (465,405) (472,418) 252c20
+	mov x1, 465
+	mov x2, 405
+	mov x5, 472
+	mov x6, 418
+	movz w7, 0x2c20
+	movk w7, 0x25, lsl #16 
+	bl rectangulo
+	// (465,426) (472,433) 252c20
+	mov x1, 465
+	mov x2, 426
+	mov x5, 472
+	mov x6, 433
+	movz w7, 0x2c20
+	movk w7, 0x25, lsl #16 
+	bl rectangulo
+	// (491,418) (498,453) 232a20
+	mov x1, 491
+	mov x2, 418
+	mov x5, 498
+	mov x6, 453
+	movz w7, 0x2a20
+	movk w7, 0x23, lsl #16 
+	bl rectangulo
+	// (545,388) (552,426) 232a20
+	mov x1, 545
+	mov x2, 388
+	mov x5, 552
+	mov x6, 426
+	movz w7, 0x2a20
+	movk w7, 0x23, lsl #16 
+	bl rectangulo
+	// (571,432) (579,453) 232a20
+	mov x1, 571
+	mov x2, 432
+	mov x5, 579
+	mov x6, 453
+	movz w7, 0x2a20
+	movk w7, 0x23, lsl #16 
+	bl rectangulo
+	// (599,388) (606,433) 232a20
+	mov x1, 599
+	mov x2, 388
+	mov x5, 606
+	mov x6, 433
+	movz w7, 0x2a20
+	movk w7, 0x23, lsl #16 
+	bl rectangulo
+	// (305,405) (312,412) 34321d
+	mov x1, 305
+	mov x2, 405
+	mov x5, 312
+	mov x6, 412
+	movz w7, 0x321d
+	movk w7, 0x34, lsl #16 
+	bl rectangulo
+	
+
+
+
+	ldr x30, [sp]
 	add sp, sp, #8
-	mov x30, x28
 	ret
 

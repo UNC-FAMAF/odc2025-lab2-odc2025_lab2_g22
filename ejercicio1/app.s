@@ -49,8 +49,16 @@ main:
 	bl rectangulo
 
 // FIN DE EJEMPLO*/
+	bl fondo
+	mov x1, 200
+	mov x2, 150
+	mov x5, 300
+	mov x6, 384
 
-bl fondo
+	movz x7, 0x0C, lsl 16
+	movk x7, 0xFBAF, lsl 00
+
+	//bl rectangulo
 b InfLoop
 
 InfLoop:
