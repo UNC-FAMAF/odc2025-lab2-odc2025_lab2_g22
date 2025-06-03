@@ -16538,7 +16538,7 @@ Disassembly of section .text:
    901c8:	f80083e9 	stur	x9, [sp, #8]
    901cc:	aa0903e2 	mov	x2, x9
    901d0:	91001025 	add	x5, x1, #0x4
-   901d4:	91004046 	add	x6, x2, #0x10
+   901d4:	91008046 	add	x6, x2, #0x20
    901d8:	d2803c09 	mov	x9, #0x1e0                 	// #480
    901dc:	eb09005f 	cmp	x2, x9
    901e0:	5400006d 	b.le	901ec <dibujar_gota_1>
@@ -16555,7 +16555,7 @@ Disassembly of section .text:
    90204:	f80183e9 	stur	x9, [sp, #24]
    90208:	aa0903e2 	mov	x2, x9
    9020c:	91001025 	add	x5, x1, #0x4
-   90210:	91004046 	add	x6, x2, #0x10
+   90210:	91008046 	add	x6, x2, #0x20
    90214:	d2803c09 	mov	x9, #0x1e0                 	// #480
    90218:	eb09005f 	cmp	x2, x9
    9021c:	5400006d 	b.le	90228 <dibujar_gota_2>
@@ -16572,7 +16572,7 @@ Disassembly of section .text:
    90240:	f80283e9 	stur	x9, [sp, #40]
    90244:	aa0903e2 	mov	x2, x9
    90248:	91001025 	add	x5, x1, #0x4
-   9024c:	91004046 	add	x6, x2, #0x10
+   9024c:	91008046 	add	x6, x2, #0x20
    90250:	d2803c09 	mov	x9, #0x1e0                 	// #480
    90254:	eb09005f 	cmp	x2, x9
    90258:	5400006d 	b.le	90264 <dibujar_gota_3>
@@ -16589,7 +16589,7 @@ Disassembly of section .text:
    9027c:	f80383e9 	stur	x9, [sp, #56]
    90280:	aa0903e2 	mov	x2, x9
    90284:	91001025 	add	x5, x1, #0x4
-   90288:	91004046 	add	x6, x2, #0x10
+   90288:	91008046 	add	x6, x2, #0x20
    9028c:	d2803c09 	mov	x9, #0x1e0                 	// #480
    90290:	eb09005f 	cmp	x2, x9
    90294:	5400006d 	b.le	902a0 <dibujar_gota_4>
@@ -16606,7 +16606,7 @@ Disassembly of section .text:
    902b8:	f80483e9 	stur	x9, [sp, #72]
    902bc:	aa0903e2 	mov	x2, x9
    902c0:	91001025 	add	x5, x1, #0x4
-   902c4:	91004046 	add	x6, x2, #0x10
+   902c4:	91008046 	add	x6, x2, #0x20
    902c8:	d2803c09 	mov	x9, #0x1e0                 	// #480
    902cc:	eb09005f 	cmp	x2, x9
    902d0:	5400006d 	b.le	902dc <dibujar_gota_5>
@@ -16623,7 +16623,7 @@ Disassembly of section .text:
    902f4:	f80583e9 	stur	x9, [sp, #88]
    902f8:	aa0903e2 	mov	x2, x9
    902fc:	91001025 	add	x5, x1, #0x4
-   90300:	91004046 	add	x6, x2, #0x10
+   90300:	91008046 	add	x6, x2, #0x20
    90304:	d2803c09 	mov	x9, #0x1e0                 	// #480
    90308:	eb09005f 	cmp	x2, x9
    9030c:	5400006d 	b.le	90318 <dibujar_gota_6>
@@ -16640,7 +16640,7 @@ Disassembly of section .text:
    90330:	f80683e9 	stur	x9, [sp, #104]
    90334:	aa0903e2 	mov	x2, x9
    90338:	91001025 	add	x5, x1, #0x4
-   9033c:	91004046 	add	x6, x2, #0x10
+   9033c:	91008046 	add	x6, x2, #0x20
    90340:	d2803c09 	mov	x9, #0x1e0                 	// #480
    90344:	eb09005f 	cmp	x2, x9
    90348:	5400006d 	b.le	90354 <dibujar_gota_7>
@@ -16657,7 +16657,7 @@ Disassembly of section .text:
    9036c:	f80783e9 	stur	x9, [sp, #120]
    90370:	aa0903e2 	mov	x2, x9
    90374:	91001025 	add	x5, x1, #0x4
-   90378:	91004046 	add	x6, x2, #0x10
+   90378:	91008046 	add	x6, x2, #0x20
    9037c:	d2803c09 	mov	x9, #0x1e0                 	// #480
    90380:	eb09005f 	cmp	x2, x9
    90384:	5400006d 	b.le	90390 <dibujar_gota_8>
@@ -16674,7 +16674,7 @@ Disassembly of section .text:
    903a8:	f80883e9 	stur	x9, [sp, #136]
    903ac:	aa0903e2 	mov	x2, x9
    903b0:	91001025 	add	x5, x1, #0x4
-   903b4:	91004046 	add	x6, x2, #0x10
+   903b4:	91008046 	add	x6, x2, #0x20
    903b8:	d2803c09 	mov	x9, #0x1e0                 	// #480
    903bc:	eb09005f 	cmp	x2, x9
    903c0:	5400006d 	b.le	903cc <dibujar_gota_9>
@@ -16691,7 +16691,7 @@ Disassembly of section .text:
    903e4:	f80983e9 	stur	x9, [sp, #152]
    903e8:	aa0903e2 	mov	x2, x9
    903ec:	91001025 	add	x5, x1, #0x4
-   903f0:	91004046 	add	x6, x2, #0x10
+   903f0:	91008046 	add	x6, x2, #0x20
    903f4:	d2803c09 	mov	x9, #0x1e0                 	// #480
    903f8:	eb09005f 	cmp	x2, x9
    903fc:	5400006d 	b.le	90408 <dibujar_gota_10>
@@ -16709,7 +16709,7 @@ Disassembly of section .text:
    9041c:	d2800029 	mov	x9, #0x1                   	// #1
    90420:	f80003e9 	stur	x9, [sp]
    90424:	aa0903e2 	mov	x2, x9
-   90428:	91004046 	add	x6, x2, #0x10
+   90428:	91008046 	add	x6, x2, #0x20
    9042c:	cb2a63ff 	sub	sp, sp, x10
    90430:	d65f03c0 	ret
 

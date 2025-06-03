@@ -6,6 +6,11 @@
 	.globl main
 
 main:
+	//Informacion para modificar las gotas
+	/*
+	En la linea ~125 aparece cómo modificar el ancho y largo de las gotas
+	y en la línea ~139 el color
+	*/
 	// x0 contiene la direccion base del framebuffer
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
@@ -116,7 +121,10 @@ animacion_lluvia:
 	stur x9, [sp, #8]
 	mov x2, x9
 	add x5, x1, #4
-	add x6, x2, #16
+	add x6, x2, #32 
+	//acá se modifica el largo de la gota, para modificar el ancho de todas
+	//hay que subrayar "add x6, x2, #32" apretar ctrl+h, y modificar el valor de #32
+	//Lo mismo para add x5, x1, #4, que modifica el ancho de la gota
 	//---> LLegó al final?
 	mov x9, SCREEN_HEIGH
 	cmp x2, x9
@@ -128,6 +136,9 @@ animacion_lluvia:
 	dibujar_gota_1: //#346ed1
 	movz w7, #0x595c, lsl #0
 	movk w7, #0x0055, lsl #16 
+	//acá se modfica el color de las gotas para camiarlo hacer lo mismo que
+	//se expresa en la linea 120 pero con movz w7, #0x595c, lsl #0 y 
+	//movk w7, #0x0055, lsl #16 
 	bl rectangulo
 	//---------------------gota2------------------ //#9fb0bd
 	//---> Mover más abajo la gota1
@@ -137,7 +148,7 @@ animacion_lluvia:
 	stur x9, [sp, #24]
 	mov x2, x9
 	add x5, x1, #4
-	add x6, x2, #16
+	add x6, x2, #32
 	//---> LLegó al final?
 	mov x9, SCREEN_HEIGH
 	cmp x2, x9
@@ -159,7 +170,7 @@ animacion_lluvia:
 	stur x9, [sp, #40]
 	mov x2, x9
 	add x5, x1, #4
-	add x6, x2, #16
+	add x6, x2, #32
 	//---> LLegó al final?
 	mov x9, SCREEN_HEIGH
 	cmp x2, x9
@@ -181,7 +192,7 @@ animacion_lluvia:
 	stur x9, [sp, #56]
 	mov x2, x9
 	add x5, x1, #4
-	add x6, x2, #16
+	add x6, x2, #32
 	//---> LLegó al final?
 	mov x9, SCREEN_HEIGH
 	cmp x2, x9
@@ -203,7 +214,7 @@ animacion_lluvia:
 	stur x9, [sp, #72]
 	mov x2, x9
 	add x5, x1, #4
-	add x6, x2, #16
+	add x6, x2, #32
 	//---> LLegó al final?
 	mov x9, SCREEN_HEIGH
 	cmp x2, x9
@@ -225,7 +236,7 @@ animacion_lluvia:
 	stur x9, [sp, #88]
 	mov x2, x9
 	add x5, x1, #4
-	add x6, x2, #16
+	add x6, x2, #32
 	//---> LLegó al final?
 	mov x9, SCREEN_HEIGH
 	cmp x2, x9
@@ -247,7 +258,7 @@ animacion_lluvia:
 	stur x9, [sp, #104]
 	mov x2, x9
 	add x5, x1, #4
-	add x6, x2, #16
+	add x6, x2, #32
 	//---> LLegó al final?
 	mov x9, SCREEN_HEIGH
 	cmp x2, x9
@@ -269,7 +280,7 @@ animacion_lluvia:
 	stur x9, [sp, #120]
 	mov x2, x9
 	add x5, x1, #4
-	add x6, x2, #16
+	add x6, x2, #32
 	//---> LLegó al final?
 	mov x9, SCREEN_HEIGH
 	cmp x2, x9
@@ -291,7 +302,7 @@ animacion_lluvia:
 	stur x9, [sp, #136]
 	mov x2, x9
 	add x5, x1, #4
-	add x6, x2, #16
+	add x6, x2, #32
 	//---> LLegó al final?
 	mov x9, SCREEN_HEIGH
 	cmp x2, x9
@@ -313,7 +324,7 @@ animacion_lluvia:
 	stur x9, [sp, #152]
 	mov x2, x9
 	add x5, x1, #4
-	add x6, x2, #16
+	add x6, x2, #32
 	//---> LLegó al final?
 	mov x9, SCREEN_HEIGH
 	cmp x2, x9
@@ -335,7 +346,7 @@ animacion_lluvia:
 		mov x9, #1
 		stur x9, [sp]
 		mov x2, x9
-		add x6, x2, #16
+		add x6, x2, #32
 		sub sp, sp, x10
 		ret
 	
