@@ -2,6 +2,7 @@
 .equ SCREEN_HEIGHT, 	480
 .equ BITS_PER_PIXEL,  	32
 .extern fondo
+.extern finn
 .extern funciones_basicas
 .global main
 main:
@@ -9,10 +10,10 @@ main:
 	mov x20, x0	// dirección base del framebuffer en x20 (por las dudas)
 
 	/*  
-		x0 contiene la dirección base del framebuffer
-		x1 coordenada X inicio del dibujo
-		x2 coordenada Y inicio del dibujo
-		x5 cuántas líneas pintar en X
+	    x0 contiene la dirección base del framebuffer
+            x1 coordenada X inicio del dibujo
+            x2 coordenada Y inicio del dibujo
+	    x5 cuántas líneas pintar en X
   	    x6 cuántas líneas pintar en Y
   	    x7 color
   	*/
@@ -31,9 +32,11 @@ main:
 
 	bl pintar_jake
 	
-    mov x1, 505
-    mov x2, 166
-    bl pintar_hojita
+        mov x1, 505
+        mov x2, 166
+        bl pintar_hojita
+    
+        bl finn
 
 b InfLoop
 
