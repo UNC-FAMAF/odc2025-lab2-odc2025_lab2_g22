@@ -1,6 +1,7 @@
 .equ SCREEN_WIDTH, 		640
 .equ SCREEN_HEIGHT, 	480
 .equ BITS_PER_PIXEL,  	32
+.extern bimo
 .extern fondo
 .extern finn
 .extern funciones_basicas
@@ -35,7 +36,7 @@ main:
         mov x1, 505
         mov x2, 166
         bl pintar_hojita
-    
+    bl bimo
         bl finn
 
 b InfLoop
