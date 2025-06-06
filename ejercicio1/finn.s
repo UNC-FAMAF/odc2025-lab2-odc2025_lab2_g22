@@ -16,6 +16,8 @@
   	*/
 
 finn:
+        sub sp, sp, #8         // guardo memoria
+        stur lr, [sp]
 //pierna1
 	mov x1, 388
 	mov x2, 377
@@ -630,6 +632,6 @@ finn:
 
 	bl rectangulo
 	
-InfLoop:
-
-	b InfLoop
+        ldur lr, [sp]
+        add sp, sp, #8         // libero memoria
+        ret
