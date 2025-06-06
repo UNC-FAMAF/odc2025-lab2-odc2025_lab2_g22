@@ -1,22 +1,15 @@
 	.equ SCREEN_WIDTH, 		640
 	.equ SCREEN_HEIGH, 		480
 	.equ BITS_PER_PIXEL,  	32
-	.extern fondo
-	.extern figuras_basicas
 	.globl main
 
 main:
-	//Informacion para modificar las gotas
-	/*
-	En la linea ~125 aparece cómo modificar el ancho y largo de las gotas
-	y en la línea ~139 el color
-	*/
 	// x0 contiene la direccion base del framebuffer
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
 	bl fondo
 	//---------INICIALIZACION POSICIONES DE LAS GOTAS----------
-		sub sp, sp, 160
+		sub sp, sp, 176
 		//---------GUARDAR EN STACK GOTA 1-----------
 		mov x9, 50
 		stur x9, [sp]
@@ -70,7 +63,11 @@ main:
 		stur x9, [sp, #112]
 		mov x9, 380
 		stur x9, [sp, #120]
-		
+		//-----------GUARDAR HOJITA----------------
+		mov x1, #10
+		mov x2, #10
+		stur x1, [sp, #160]
+		stur x2, [sp, #168]
 
 	b reloj_universal
 
@@ -79,12 +76,20 @@ reloj_universal:
 	mov x21, #0
 	loop_reloj_universal:
 		//-------Animaciones-----
+		bl fondo
 		bl animacion_lluvia
+		bl pintar_jake
+		bl finn
+		bl bimo
+		bl animacion_bimo
+		bl movimiento_hojita
+		
 		//-----------------------
 		//----------PERDEMOS TIEMPO-------------------
-		delay:
+		delay: 
+		//----ACÁ SE MODIFICA LA VELOCIDAD DE LA ANIMACIÓN
 			movz x9, #0x0000
-			movk x9, #0x00A0, lsl #16
+			movk x9, #0x0700, lsl #16 
 			delay_loop:
 				sub x9, x9, #1
 				cmp x9, #0
@@ -95,7 +100,125 @@ reloj_universal:
 		b loop_reloj_universal		 
 		//-----------------------------------------
 
+animacion_bimo:
+	mov x28, x30
+	and x10, x21, #1    // x10 = 0 ó 1
+	cmp x10, #0
+	b.ne SEGUNDO_COLOR
+	PRIMER_COLOR:
+		// ---- PRIMER COLOR ----
+    	// Amarillo
+		mov x1, #270 //fila inicial
+		mov x2, #397    // columna inicial
+		mov x5, #275     // fila final 
+		mov x6, #402    // columna final  
+		movz x7, #0xFF00
+		movk x7, #0xFFFF, lsl #16
+		bl rectangulo
 
+    	// Verde
+		mov x1, #280
+		mov x2, #397
+		mov x5, #285
+		mov x6, #402
+		movz x7, #0x00FF
+		movk x7, #0xFF00, lsl #16
+		bl rectangulo
+
+   		// Rojo
+		mov x1, #290
+		mov x2, #397
+		mov x5, #295
+		mov x6, #402
+		movz x7, #0x0000
+		movk x7, #0xFFFF, lsl #16
+		bl rectangulo
+
+		b final_animacion_bimo
+
+	SEGUNDO_COLOR:
+	// ---- SEGUNDO COLOR ---- (versión más suave de los botones)
+    	// Amarillo → Naranja
+		mov x1, #270 //fila inicial
+		mov x2, #397    // columna inicial
+		mov x5, #275     // fila final 
+		mov x6, #402    // columna final  
+		movz x7, #0x2040
+		movk x7, #0xFF80, lsl #16
+		bl rectangulo
+
+    	// Verde → Verde pastel
+		mov x1, #280
+		mov x2, #397
+		mov x5, #285
+		mov x6, #402
+		movz x7, #0xBBDD
+		movk x7, #0xFFAA, lsl #16
+		bl rectangulo
+
+    	// Rojo → Rojo suave
+
+		mov x1, #290
+		mov x2, #397
+		mov x5, #295
+		mov x6, #402
+		movz x7, #0x0000
+		movk x7, #0xFFFF, lsl #16
+		bl rectangulo
+		movz x7, #0x5050
+		movk x7, #0xFFAA, lsl #16
+		bl rectangulo
+
+	final_animacion_bimo:
+		mov x30, x28
+		ret
+
+
+movimiento_hojita:
+    //--------------------------------------------
+    mov x28, x30
+    mov x16, #1  // Reducir frecuencia de movimiento (cada 8 ciclos)
+    
+    //------CALCULAR MODULO X21 % X16-----------------
+    udiv x9, x21, x16
+    mul x9, x9, x16
+    sub x9, x21, x9
+    //-----------¿ES TIEMPO DE MOVER?----------------
+    cmp x9, #0
+    b.ne final_animacion_hoja
+    //----------------------------------------
+    ldr x2, [sp, #168]  // Y
+    ldr x1, [sp, #160]  // X
+    
+    cmp x2, #374 
+    b.ge sin_movimiento_hoja
+    
+    // ===== ALTERNAR DIRECCIÓN HORIZONTAL =====
+    // Usar bit 0 de x21 para determinar dirección (0=derecha, 1=izquierda)
+    and x10, x21, #1    // x10 = 0 ó 1
+    
+    // Mover verticalmente (siempre hacia abajo)
+    add x2, x2, #32
+    
+    // Mover horizontalmente según dirección
+    cmp x10, #0
+    b.eq mover_derecha
+	mover_izquierda:
+    	sub x1, x1, #10  // Izquierda
+    	b guardar_posicion
+	mover_derecha:
+    	add x1, x1, #18   // Derecha
+	guardar_posicion:
+    // ==============================================
+    
+    	stur x1, [sp, #160]
+    	stur x2, [sp, #168]
+
+	sin_movimiento_hoja:
+    	bl pintar_hojita
+
+	final_animacion_hoja:
+    br x28
 
 //x16 ----> reloj_animacion_gota
 //x28 ----> program counter de repuesto
@@ -112,20 +235,18 @@ no haga nada. Y el modulo es cero, entonces me toca actualizar la animacion.
 	mov x28, x30
 	mov x16, #1
 	//------CALCULAR MODULO X21 % X16-----------------
-	udiv x9, x21, x16 //x9 = x21 / 3
-	mul x9, x9, x16  //x9 = (x21 / 3)*3
-	sub x9, x21, x9 //x9 = x21 - (x21 / 3)*3
+	udiv x9, x21, x16 //x9 = x21 / x16
+	mul x9, x9, x16  //x9 = (x21 / x16)*x16
+	sub x9, x21, x9 //x9 = x21 - (x21 / x16)*x16
 
 	//-----------¿ES MULTIPLO?----------------------
 	cmp x9, #0
 	b.ne final_animacion
 	//--------------DIBUJA RECTANGULO-------------------------
-	//---> Dibujar Fondo
-	bl fondo
 	//---> Mover más abajo la gota1
 	ldr x1, [sp]
 	ldr x9, [sp, #8]
-	add x9, x9, #10
+	add x9, x9, #160
 	stur x9, [sp, #8]
 	mov x2, x9
 	add x5, x1, #4
@@ -152,7 +273,7 @@ no haga nada. Y el modulo es cero, entonces me toca actualizar la animacion.
 	//---> Mover más abajo la gota1
 	ldr x1, [sp, #16]
 	ldr x9, [sp, #24]
-	add x9, x9, #10
+	add x9, x9, #160
 	stur x9, [sp, #24]
 	mov x2, x9
 	add x5, x1, #4
@@ -174,7 +295,7 @@ no haga nada. Y el modulo es cero, entonces me toca actualizar la animacion.
 	//---> Mover más abajo la gota1
 	ldr x1, [sp, #32]
 	ldr x9, [sp, #40]
-	add x9, x9, #10
+	add x9, x9, #160
 	stur x9, [sp, #40]
 	mov x2, x9
 	add x5, x1, #4
@@ -196,7 +317,7 @@ no haga nada. Y el modulo es cero, entonces me toca actualizar la animacion.
 	//---> Mover más abajo la gota1
 	ldr x1, [sp, #48]
 	ldr x9, [sp, #56]
-	add x9, x9, #10
+	add x9, x9, #160
 	stur x9, [sp, #56]
 	mov x2, x9
 	add x5, x1, #4
@@ -218,7 +339,7 @@ no haga nada. Y el modulo es cero, entonces me toca actualizar la animacion.
 	//---> Mover más abajo la gota1
 	ldr x1, [sp, #64]
 	ldr x9, [sp, #72]
-	add x9, x9, #10
+	add x9, x9, #160
 	stur x9, [sp, #72]
 	mov x2, x9
 	add x5, x1, #4
@@ -240,7 +361,7 @@ no haga nada. Y el modulo es cero, entonces me toca actualizar la animacion.
 	//---> Mover más abajo la gota1
 	ldr x1, [sp, #80]
 	ldr x9, [sp, #88]
-	add x9, x9, #10
+	add x9, x9, #160
 	stur x9, [sp, #88]
 	mov x2, x9
 	add x5, x1, #4
@@ -262,7 +383,7 @@ no haga nada. Y el modulo es cero, entonces me toca actualizar la animacion.
 	//---> Mover más abajo la gota1
 	ldr x1, [sp, #96]
 	ldr x9, [sp, #104]
-	add x9, x9, #10
+	add x9, x9, #160
 	stur x9, [sp, #104]
 	mov x2, x9
 	add x5, x1, #4
@@ -284,7 +405,7 @@ no haga nada. Y el modulo es cero, entonces me toca actualizar la animacion.
 	//---> Mover más abajo la gota1
 	ldr x1, [sp, #112]
 	ldr x9, [sp, #120]
-	add x9, x9, #10
+	add x9, x9, #160
 	stur x9, [sp, #120]
 	mov x2, x9
 	add x5, x1, #4
@@ -306,7 +427,7 @@ no haga nada. Y el modulo es cero, entonces me toca actualizar la animacion.
 	//---> Mover más abajo la gota1
 	ldr x1, [sp, #128]
 	ldr x9, [sp, #136]
-	add x9, x9, #10
+	add x9, x9, #160
 	stur x9, [sp, #136]
 	mov x2, x9
 	add x5, x1, #4
@@ -328,7 +449,7 @@ no haga nada. Y el modulo es cero, entonces me toca actualizar la animacion.
 	//---> Mover más abajo la gota1
 	ldr x1, [sp, #144]
 	ldr x9, [sp, #152]
-	add x9, x9, #10
+	add x9, x9, #160
 	stur x9, [sp, #152]
 	mov x2, x9
 	add x5, x1, #4
